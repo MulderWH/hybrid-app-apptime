@@ -1,0 +1,20 @@
+{
+  "url" : "https://apptime.mendixcloud.com",
+  "identifier" : "nl.pegamento.apptime",
+  "version" : "1.2.3",
+  "android-versionCode" : "102003",
+  "name" : "AppTime",
+  "description" : null,
+  "iosEnabled" : true,
+  "androidEnabled" : true,
+  "requirePin" : false,
+  "enableOffline" : false,
+  "permissions" : {
+    "calendar" : false,
+    "camera" : true,
+    "photoLibrary" : true,
+    "contacts" : false,
+    "microphone" : false,
+    "geoLocation" : false
+  }
+}

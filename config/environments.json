@@ -1,0 +1,17 @@
+{
+  "development" : {
+    "name" : "AppTime",
+    "identifier" : "nl.pegamento.apptime",
+    "url" : "http://wilfried.pegamento.local:8080"
+  },
+  "acceptance" : {
+    "name" : "AppTime",
+    "identifier" : "nl.pegamento.apptime",
+    "url" : "https://apptime-accp.mendixcloud.com"
+  },
+  "production" : {
+    "name" : "AppTime",
+    "identifier" : "nl.pegamento.apptime",
+    "url" : "https://prod.apptime.nl"
+  }
+}
