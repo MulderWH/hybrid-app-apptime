@@ -89,6 +89,12 @@
     "platform" : "ios",
     "width" : 87,
     "height" : 87
+  }, {
+    "tag" : "icon",
+    "filename" : "res/ios/icon-1024.png",
+    "platform" : "ios",
+    "width" : 1024,
+    "height" : 1024
   },
     { "tag": "splash", "filename": "res/ios/Default@2x~iphone~anyany.png", "platform": "ios" },
     { "tag": "splash", "filename": "res/ios/Default@2x~iphone~comany.png", "platform": "ios" },
