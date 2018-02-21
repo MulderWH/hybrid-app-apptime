@@ -2,7 +2,10 @@
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "{{identifier}}"
-        version   = "{{version}}" >
+        version   = "{{version}}" 
+		android-versionCode = "{{android-versionCode}}" >
+	<!-- WM: force the android-versionCode to make sure we have a higher version code than production APKs, see: -->
+	<!-- https://medium.com/@mideeshp/shadowed-by-production-to-be-available-to-all-testers-apks-on-this-track-need-to-have-a-higher-fd22a98cea8 -->
 
     <name>{{name}}</name>
 
@@ -170,10 +173,6 @@
         <plugin name="cordova-plugin-android-permissions" source="npm" version="0.10.0" />
 
         <preference name="android-targetSdkVersion" value="23" />
-		
-		<!-- WM: force the android-versionCode to make sure we have a higher version code than production APKs, see:
-		https://medium.com/@mideeshp/shadowed-by-production-to-be-available-to-all-testers-apks-on-this-track-need-to-have-a-higher-fd22a98cea8 -->
-		<preference name="android-versionCode" value="{{android-versionCode}}" />
 
         <platform name="android">
             {{#androidImages}}
