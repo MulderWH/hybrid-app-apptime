@@ -21,7 +21,7 @@
     <preference name="phonegap-version" value="cli-7.1.0" />
 	<!-- WM: You can explicitly specify which builder to use ("1" for old builder, "2" for new builder). -->
 	<!-- WM: See this blog post for more info. https://blog.phonegap.com/phonegap-7-0-1-now-on-build-and-it-includes-some-important-changes-89087fe465f5 -->
-	<preference name='pgb-builder-version' value='2' />
+	<preference name='pgb-builder-version' value='1' />
 
     <!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
     <!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
@@ -116,9 +116,9 @@
     {{#iosEnabled}}
         <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
         <preference name="StatusBarOverlaysWebView" value="false" />
-        <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
-		<!-- WM: set the default color of the statusbar -->
-		<preference name="StatusBarStyle" value="default" />
+        <preference name="StatusBarBackgroundColor" value="#000000" />
+
+        <preference name="DisallowOverscroll" value="true" />
 		
         <preference name="DisallowOverscroll" value="true" />
 
