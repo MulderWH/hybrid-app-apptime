@@ -1,0 +1,17 @@
+/*
+Information:Gradle tasks [:generateArmv7DebugSources, :generateArmv7DebugAndroidTestSources, :prepareArmv7DebugUnitTestDependencies, :mockableAndroidJar, :CordovaLib:generateDebugSources, :CordovaLib:generateDebugAndroidTestSources, :CordovaLib:mockableAndroidJar, :CordovaLib:prepareDebugUnitTestDependencies]
+Error:In <declare-styleable> FontFamilyFont, unable to find attribute android:fontVariationSettings
+Error:Execution failed for task ':processArmv7DebugResources'.
+> com.android.ide.common.process.ProcessException: Failed to execute aapt
+Information:BUILD FAILED
+Information:Total time: 7.444 secs
+Information:2 errors
+Information:0 warnings
+Information:See complete output in console
+https://stackoverflow.com/questions/49162538/cordova-build-android-unable-to-find-attribute-androidfontvariationsettings-a
+*/
+configurations.all {
+    resolutionStrategy {
+        force 'com.android.support:support-v4:27.1.0'
+    }
+}

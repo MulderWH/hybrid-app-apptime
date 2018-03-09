@@ -3,10 +3,10 @@
 	display: none;
 }
 .mx-message {
-    -webkit-animation: fade-in 4s;
-    -moz-animation: fade-in 4s;
-    -o-animation: fade-in 4s;
-    animation: fade-in 4s;
+    -webkit-animation: fade-in 2s;
+    -moz-animation: fade-in 2s;
+    -o-animation: fade-in 2s;
+    animation: fade-in 2s;
     opacity: 0;
 }
 @keyframes fade-in {
