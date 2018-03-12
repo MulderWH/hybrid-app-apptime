@@ -39,8 +39,8 @@
     <plugin name="cordova-plugin-cookieemperor" spec="https://github.com/rtk/cordova-cookie-emperor.git" />
     <plugin name="cordova-plugin-device" source="npm" spec="1.1.2" />
 <!-- WM: disable the following plugins, because they are not needed and requires extra permissions -->
-<!-- WM:		<plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" /> -->
-<!-- WM:		<plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" /> -->
+<!-- WM: <plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" /> -->
+<!-- WM: <plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" /> -->
     <plugin name="cordova-plugin-dialogs" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-file" source="npm" spec="4.2.0" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.5.1" />
@@ -49,15 +49,17 @@
     <plugin name="cordova-plugin-network-information" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-secure-storage" source="npm" spec="2.4.0" />
     <plugin name="cordova-plugin-spinner" source="npm" spec="1.1.0" />
+<!-- WM: upgrade splash screen to this version because of iphone x fixes -->
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.2" />
+<!-- WM: upgrade statusbar to this version because it should support iphone x -->
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.1" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="2.1.1" />
-<!-- WM:         <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
+<!-- WM: <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
     <plugin name="cordova-plugin-zip" source="npm" spec="3.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
     <plugin name="cordova-sqlite-storage-pgb" source="git" spec="https://github.com/mendix/Cordova-sqlite-storage-pgb.git#storage-master" />
     <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
-<!-- WM:         <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/> -->
+<!-- WM: <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/> -->
 
     {{#permissions.calendar}}
         <plugin name="cordova-plugin-calendar" source="npm" spec="4.5.5">
@@ -169,6 +171,9 @@
         <plugin name="cordova-plugin-android-permissions" source="npm" version="0.10.0" />
 
         <preference name="android-targetSdkVersion" value="23" />
+		
+		<!-- WM: plugin to fix version of the android-support libraries, see https://github.com/dpa99c/cordova-android-support-gradle-release -->
+		<plugin name="cordova-android-support-gradle-release" source="npm" spec="1.2.0" />
 
         <platform name="android">
             {{#androidImages}}
