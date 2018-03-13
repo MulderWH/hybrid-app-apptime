@@ -95,6 +95,30 @@
     "platform" : "ios",
     "width" : 1024,
     "height" : 1024
+  }, {
+    "tag" : "icon",
+    "filename" : "res/ios/icon-20.png",
+    "platform" : "ios",
+    "width" : 20,
+    "height" : 20
+  }, {
+    "tag" : "icon",
+    "filename" : "res/ios/icon-20-2x.png",
+    "platform" : "ios",
+    "width" : 40,
+    "height" : 40
+  }, {
+    "tag" : "icon",
+    "filename" : "res/ios/icon-40.png",
+    "platform" : "ios",
+    "width" : 40,
+    "height" : 40
+  }, {
+    "tag" : "icon",
+    "filename" : "res/ios/icon-72-2x.png",
+    "platform" : "ios",
+    "width" : 144,
+    "height" : 144
   },
     { "tag": "splash", "filename": "res/ios/Default@2x~iphone~anyany.png", "platform": "ios" },
     { "tag": "splash", "filename": "res/ios/Default@2x~iphone~comany.png", "platform": "ios" },
