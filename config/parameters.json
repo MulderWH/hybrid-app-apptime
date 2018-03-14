@@ -1,8 +1,8 @@
 {
   "url" : "https://apptime.mendixcloud.com",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "1.4.1",
-  "android-versionCode" : "104001",
+  "version" : "1.4.2",
+  "android-versionCode" : "104002",
   "name" : "AppTime",
   "description" : null,
   "iosEnabled" : true,
