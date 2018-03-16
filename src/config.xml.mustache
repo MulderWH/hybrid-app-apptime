@@ -3,9 +3,9 @@
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "{{identifier}}"
         version   = "{{version}}" 
-		android-versionCode = "{{android-versionCode}}" >
-	<!-- WM: force the android-versionCode to make sure we have a higher version code than production APKs, see: -->
-	<!-- https://medium.com/@mideeshp/shadowed-by-production-to-be-available-to-all-testers-apks-on-this-track-need-to-have-a-higher-fd22a98cea8 -->
+        android-versionCode = "{{android-versionCode}}" >
+    <!-- WM: force the android-versionCode to make sure we have a higher version code than production APKs, see: -->
+    <!-- https://medium.com/@mideeshp/shadowed-by-production-to-be-available-to-all-testers-apks-on-this-track-need-to-have-a-higher-fd22a98cea8 -->
 
     <name>{{name}}</name>
 
@@ -23,13 +23,14 @@
     <!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
     <!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
     <access origin="*" />
-	<!-- WM: make sure the click-to-call links in the app are working, see https://forum.mendixcloud.com/link/questions/88197-->
-	<allow-intent href="tel:*" />
-	<allow-intent href="sms:*" />  
+    <!-- WM: make sure the click-to-call links in the app are working, see https://forum.mendixcloud.com/link/questions/88197-->
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />  
     <allow-intent href="mailto:*" /> 
 
     <!-- Force the default architecture for Android to ARM -->
-    <plugin name="com.darktalker.cordova.screenshot" source="npm" spec="0.1.6" />
+<!-- WM:  disabled the screenshot plugin because its not used and shows warning messages in console
+    <plugin name="com.darktalker.cordova.screenshot" source="npm" spec="0.1.6" /> -->
     <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" spec="0.6.5" />
     <plugin name="cordova-build-architecture" source="git" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.3" />
     <plugin name="cordova-plugin-actionsheet" source="npm" spec="2.3.3" />
@@ -95,7 +96,7 @@
     {{/permissions.camera}}
 
     {{#permissions.camera}}
-	<!-- WM: disabled the barcodescanner plugin because it's not need and requires extra permissions    
+    <!-- WM: disabled the barcodescanner plugin because it's not need and requires extra permissions    
         <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.5" >
             <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
         </plugin> -->
@@ -111,11 +112,15 @@
         <plugin name="cordova-plugin-media" source="npm" spec="2.3.0" />
     {{/permissions.microphone}}
 
+    {{#permissions.push}}
+        <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
+    {{/permissions.push}}
+
     {{#iosEnabled}}
         <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
-		
+        
         <preference name="StatusBarStyle" value="default" />
         
         <preference name="DisallowOverscroll" value="true" />
@@ -141,7 +146,7 @@
         <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 
         <plugin name="cordova-plugin-wkwebview-engine-nextgen" source="npm" spec="^1.1.0" />
-		-->
+        -->
 
         <platform name="ios">
             {{#iosImages}}
@@ -185,7 +190,7 @@
     <!-- WM: ShowSplashScreenSpinner (boolean, defaults to true): Set to false to hide the splash-screen spinner.  -->    
     <preference name="ShowSplashScreenSpinner" value="false"/>
     <preference name="SplashScreenDelay" value="20000" />
-	<preference name="FadeSplashScreenDuration" value="1000" />
+    <preference name="FadeSplashScreenDuration" value="1000" />
     <!-- WM: the reference to the splash.png is obsolete 
     <splash src="splash.png" /> -->
 

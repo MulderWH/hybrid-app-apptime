@@ -1,6 +1,6 @@
 {
   "name": "mendix-hybrid-app-template",
-  "version": "1.4.0",
+  "version": "2.0.0",
   "description": "Mendix PhoneGap Build app template",
   "scripts": {
     "init": "node init",
@@ -35,7 +35,7 @@
   "files": [
     "/config/**/.gitkeep",
     "/src/www/scripts/entry.js",
-    "/src/www/styles/custom.css",
+    "/src/www/styles/**/*.css[.mustache]",
     "/src/**/.gitkeep",
     "/init.js",
     "/*.js",
@@ -43,7 +43,8 @@
   ],
   "dependencies": {
     "global": "^4.3.2",
-    "mendix-hybrid-app-base": "^1.4.2"
+    "mendix-hybrid-app-base": "^2.0.0",
+    "mustache-loader": "^1.4.0"
   },
   "devDependencies": {
     "shelljs": "^0.7.7",
