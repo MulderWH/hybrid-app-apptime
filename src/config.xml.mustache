@@ -27,6 +27,9 @@
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />  
     <allow-intent href="mailto:*" /> 
+    <!-- WM: allow videos to be embedded in news items. If not allowed then app shows empty container-->
+    <allow-navigation href="*vimeo*"/>
+    <allow-navigation href="*youtube*"/>
 
     <!-- Force the default architecture for Android to ARM -->
 <!-- WM:  disabled the screenshot plugin because its not used and shows warning messages in console

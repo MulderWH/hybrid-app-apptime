@@ -1,8 +1,8 @@
 {
   "url" : "https://apptime-accp.mendixcloud.com",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "1.4.4",
-  "android-versionCode" : "104004",
+  "version" : "1.5.0",
+  "android-versionCode" : "105000",
   "name" : "AppTime",
   "description" : "Mobile access to your work",
   "iosEnabled" : true,
