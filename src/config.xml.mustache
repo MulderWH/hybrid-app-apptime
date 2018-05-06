@@ -56,13 +56,12 @@
 <!-- WM: upgrade splash screen to this version because of iphone x fixes -->
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.2" />
 <!-- WM: upgrade statusbar to this version because it should support iphone x -->
-    <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.1" />
+    <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="2.1.1" />
 <!-- WM: <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
     <plugin name="cordova-plugin-zip" source="npm" spec="3.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
     <plugin name="cordova-sqlite-storage-pgb" source="git" spec="https://github.com/mendix/Cordova-sqlite-storage-pgb.git#storage-master" />
-    <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
 <!-- WM: <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/> -->
 
     {{#permissions.calendar}}
@@ -73,7 +72,7 @@
 
     {{#permissions.camera}}
         {{#permissions.photoLibrary}}
-            <plugin name="cordova-plugin-camera" source="npm" spec="2.4.0">
+            <plugin name="cordova-plugin-camera" source="npm" spec="4.0.3">
                 <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
                 <param name="PHOTOLIBRARY_USAGE_DESCRIPTION" value="This app needs to access your photo library" />
             </plugin>
@@ -116,12 +115,12 @@
     {{/permissions.microphone}}
 
     {{#permissions.push}}
-        <plugin name="phonegap-plugin-push" source="npm" spec="1.5.3" />
+        <plugin name="phonegap-plugin-push" source="npm" spec="1.11.1" />
     {{/permissions.push}}
 
     {{#iosEnabled}}
         <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
-        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarOverlaysWebView" value="true" />
         <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
         
         <preference name="StatusBarStyle" value="default" />
@@ -174,8 +173,8 @@
         <!-- This plugin should be removed if the project does not use Crosswalk -->
         <plugin name="com.crosswalk.cookies" spec="https://github.com/dokoto/crosswalk-cookies.git" />
         <!-- -->
-
-        <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
+        <!-- WM: disabled because of duplciate entry
+        <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" /> -->
         <plugin name="cordova-plugin-android-permissions" source="npm" version="0.10.0" />
         <plugin name="cordova-android-support-gradle-release" source="npm" version="1.2.0">
             <variable name="ANDROID_SUPPORT_VERSION" value="27.0.0" />
