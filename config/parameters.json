@@ -1,8 +1,8 @@
 {
   "url" : "https://apptime-accp.mendixcloud.com",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "1.5.1",
-  "android-versionCode" : "105001",
+  "version" : "1.6.0",
+  "android-versionCode" : "106000",
   "name" : "AppTime",
   "description" : "Mobile access to your work",
   "iosEnabled" : true,
@@ -16,12 +16,12 @@
     "contacts" : false,
     "microphone" : false,
     "geoLocation" : false,
-    "push": true
+    "push" : true
   },
   "theme" : {
-    "background" : "#fff",
-    "text" : "#000",
+    "background" : "#ffffff",
+    "text" : null,
     "button" : "#ec1d89",
-    "buttonCaption" : "#fff"
+    "buttonCaption" : "#ffffff"
   }
 }

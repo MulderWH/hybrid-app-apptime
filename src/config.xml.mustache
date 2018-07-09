@@ -20,6 +20,7 @@
     -->
     <preference name="phonegap-version" value="cli-7.1.0" />
 
+
     <!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
     <!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
     <access origin="*" />
@@ -32,7 +33,7 @@
     <allow-navigation href="*youtube*"/>
 
     <!-- Force the default architecture for Android to ARM -->
-<!-- WM:  disabled the screenshot plugin because its not used and shows warning messages in console
+    <!-- WM:  disabled the screenshot plugin because its not used and shows warning messages in console
     <plugin name="com.darktalker.cordova.screenshot" source="npm" spec="0.1.6" /> -->
     <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" spec="0.6.5" />
     <plugin name="cordova-build-architecture" source="git" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.3" />
@@ -42,9 +43,9 @@
     <plugin name="cordova-plugin-battery-status" source="npm" spec="1.1.2" />
     <plugin name="cordova-plugin-cookieemperor" spec="https://github.com/rtk/cordova-cookie-emperor.git" />
     <plugin name="cordova-plugin-device" source="npm" spec="1.1.2" />
-<!-- WM: disable the following plugins, because they are not needed and requires extra permissions -->
-<!-- WM: <plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" /> -->
-<!-- WM: <plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" /> -->
+    <!-- WM: disable the following plugins, because they are not needed and requires extra permissions -->
+    <!-- WM: <plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" /> -->
+    <!-- WM: <plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" /> -->
     <plugin name="cordova-plugin-dialogs" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-file" source="npm" spec="4.2.0" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.5.1" />
@@ -53,16 +54,17 @@
     <plugin name="cordova-plugin-network-information" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-secure-storage" source="npm" spec="2.4.0" />
     <plugin name="cordova-plugin-spinner" source="npm" spec="1.1.0" />
-<!-- WM: upgrade splash screen to this version because of iphone x fixes -->
+    <!-- WM: upgrade splash screen to this version because of iphone x fixes -->
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.2" />
-<!-- WM: upgrade statusbar to this version because it should support iphone x -->
+    <!-- WM: upgrade statusbar to this version because it should support iphone x -->
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="2.1.1" />
-<!-- WM: <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
+    <!-- WM: <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
     <plugin name="cordova-plugin-zip" source="npm" spec="3.1.0" />
     <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
     <plugin name="cordova-sqlite-storage-pgb" source="git" spec="https://github.com/mendix/Cordova-sqlite-storage-pgb.git#storage-master" />
-<!-- WM: <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/> -->
+    <!-- WM:  disabled the launchnavigator plugin because its not used
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" source="npm" version="2.9.11"/> -->
 
     {{#permissions.calendar}}
         <plugin name="cordova-plugin-calendar" source="npm" spec="4.5.5">
@@ -98,7 +100,7 @@
     {{/permissions.camera}}
 
     {{#permissions.camera}}
-    <!-- WM: disabled the barcodescanner plugin because it's not need and requires extra permissions    
+        <!-- WM: disabled the barcodescanner plugin because it's not need and requires extra permissions    
         <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.5" >
             <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
         </plugin> -->
@@ -120,11 +122,12 @@
 
     {{#iosEnabled}}
         <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
+                <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
         <preference name="StatusBarOverlaysWebView" value="true" />
         <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
-        
+        <!-- WM: make status bar overlay and change default color to white with black text  -->
         <preference name="StatusBarStyle" value="default" />
-        
+
         <preference name="DisallowOverscroll" value="true" />
 
         <preference name="webviewbounce" value="false" />
@@ -179,13 +182,22 @@
         <plugin name="cordova-android-support-gradle-release" source="npm" version="1.2.0">
             <variable name="ANDROID_SUPPORT_VERSION" value="27.0.0" />
         </plugin>
+        <plugin name="cordova-android-play-services-gradle-release" source="npm" version="1.2.0">
+            <variable name="PLAY_SERVICES_VERSION" value="11.8.0" />
+        </plugin>
 
+        <preference name="android-minSdkVersion" value="19" />
         <preference name="android-targetSdkVersion" value="23" />
 
         <platform name="android">
             {{#androidImages}}
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
-                <{{{tag}}} src="{{{filename}}}" density="{{{qualifier}}}"/>
+                {{#density}}
+                    <{{{tag}}} src="{{{filename}}}" density="{{{density}}}"/>
+                {{/density}}
+                {{#qualifier}}
+                    <{{{tag}}} src="{{{filename}}}" density="{{{qualifier}}}"/>
+                {{/qualifier}}
             {{/androidImages}}
         </platform>
     {{/androidEnabled}}
@@ -193,8 +205,8 @@
     <preference name="ShowSplashScreenSpinner" value="false"/>
     <preference name="SplashScreenDelay" value="20000" />
     <preference name="FadeSplashScreenDuration" value="1000" />
-    <!-- WM: the reference to the splash.png is obsolete 
-    <splash src="splash.png" /> -->
+    
+    <splash src="res/android/screen-xxxhdpi-portrait.png" />
 
     {{{customConfiguration}}}
 </widget>
