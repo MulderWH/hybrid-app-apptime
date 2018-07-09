@@ -2,6 +2,7 @@ var MxApp = require("mendix-hybrid-app-base");
 
 MxApp.onConfigReady(function(config) {
     // Perform any custom operations on the dojoConfig object here
+    window.dojoConfig.server.timeout = 15000;
 });
 
 MxApp.onClientReady(function(mx) {
