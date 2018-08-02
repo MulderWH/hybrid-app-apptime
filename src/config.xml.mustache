@@ -141,7 +141,7 @@
         <!-- Disable backup to iCloud on iOS. -->
         <preference name="BackupWebStorage" value="none" />
 
-        <!-- Enable WKWebView on iOS -->
+        <!-- Disable WKWebView on iOS 
         <feature name="CDVWKWebViewEngine">
             <param name="ios-package" value="CDVWKWebViewEngine" />
         </feature>
@@ -151,6 +151,7 @@
         <preference name="KeyboardDisplayRequiresUserAction" value="false" />
 
         <plugin name="cordova-plugin-wkwebview-engine-nextgen" source="npm" spec="^1.1.0" />
+        -->
 
         <platform name="ios">
             {{#iosImages}}
@@ -208,7 +209,7 @@
     <preference name="SplashScreenDelay" value="20000" />
     <preference name="FadeSplashScreenDuration" value="1000" />
     
-    <splash src="res/android/screen-xxxhdpi-portrait.png" />
-
+    <splash src="res/android/screen-xxxhdpi-portrait.png" /> 
+    
     {{{customConfiguration}}}
 </widget>
