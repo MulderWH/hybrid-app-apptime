@@ -7,7 +7,7 @@
   "acceptance" : {
     "name" : "AppTime",
     "identifier" : "nl.pegamento.apptime",
-    "url" : "https://apptime-accp.mendixcloud.com"
+    "url" : "https://accp.apptime.nl"
   },
   "production" : {
     "name" : "AppTime",

@@ -20,7 +20,6 @@
     -->
     <preference name="phonegap-version" value="cli-7.1.0" />
 
-
     <!-- allow assets to be loaded and open links in the app itself, see: http://phonegap.com/blog/2012/03/20/access-tags/ -->
     <!-- Issue 204079: Allow retrieval of any resource. Custom widgets can point to anything. -->
     <access origin="*" />
@@ -29,16 +28,17 @@
     <allow-navigation href="*://*.mxapp.io/*" />
     <allow-navigation href="about:blank" />
     
-    <!-- WM: make sure the click-to-call links in the app are working, see https://forum.mendixcloud.com/link/questions/88197-->
+    <!-- WM: click-to-call links fix, see https://forum.mendixcloud.com/link/questions/88197-->
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />  
     <allow-intent href="mailto:*" /> 
-    <!-- WM: allow videos to be embedded in news items. If not allowed then app shows empty container-->
-    <allow-navigation href="*vimeo*"/>
-    <allow-navigation href="*youtube*"/>
+    <!-- WM: allow videos and assets to be loaded and open links in the app itself -->
+    <allow-navigation href="*://*.vimeo.com/*"/>
+    <allow-navigation href="*://*.youtube.com/*"/>
+    <allow-navigation href="*://*.apptime.nl/*"/>
 
     <!-- Force the default architecture for Android to ARM -->
-    <!-- WM:  disabled the screenshot plugin because its not used and shows warning messages in console
+    <!-- WM:  disabled the screenshot plugin because its not used and shows warning  in console
     <plugin name="com.darktalker.cordova.screenshot" source="npm" spec="0.1.6" /> -->
     <plugin name="com.telerik.plugins.nativepagetransitions" source="npm" spec="0.6.5" />
     <plugin name="cordova-build-architecture" source="git" spec="https://github.com/MBuchalik/cordova-build-architecture.git#v1.0.3" />
@@ -48,20 +48,21 @@
     <plugin name="cordova-plugin-battery-status" source="npm" spec="1.1.2" />
     <plugin name="cordova-plugin-cookieemperor" spec="https://github.com/rtk/cordova-cookie-emperor.git" />
     <plugin name="cordova-plugin-device" source="npm" spec="1.1.2" />
-    <!-- WM: disable the following plugins, because they are not needed and requires extra permissions -->
+    <!-- WM: disable the plugins, because they are not used and require permissions -->
     <!-- WM: <plugin name="cordova-plugin-device-motion" source="npm" spec="1.2.1" /> -->
     <!-- WM: <plugin name="cordova-plugin-device-orientation" source="npm" spec="1.0.3" /> -->
     <plugin name="cordova-plugin-dialogs" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-file" source="npm" spec="4.2.0" />
+    <plugin name="cordova-plugin-file-opener2" source="npm" spec="2.0.19" />
     <plugin name="cordova-plugin-file-transfer" source="npm" spec="1.5.1" />
     <plugin name="cordova-plugin-globalization" source="npm" spec="1.0.3" />
-    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="1.4.0" />
+    <plugin name="cordova-plugin-inappbrowser" source="npm" spec="3.0.0" />
     <plugin name="cordova-plugin-network-information" source="npm" spec="1.2.1" />
     <plugin name="cordova-plugin-secure-storage" source="npm" spec="2.4.0" />
     <plugin name="cordova-plugin-spinner" source="npm" spec="1.1.0" />
-    <!-- WM: upgrade splash screen to this version because of iphone x fixes -->
+    <!-- WM: upgrade splash screen for iphone x support-->
     <plugin name="cordova-plugin-splashscreen" source="npm" spec="5.0.2" />
-    <!-- WM: upgrade statusbar to this version because it should support iphone x -->
+    <!-- WM: upgrade statusbar for iphone x support-->
     <plugin name="cordova-plugin-statusbar" source="npm" spec="2.4.2" />
     <plugin name="cordova-plugin-vibration" source="npm" spec="2.1.1" />
     <!-- WM: <plugin name="cordova-plugin-x-socialsharing" source="npm" version="5.0.11"/> -->
@@ -105,8 +106,8 @@
     {{/permissions.camera}}
 
     {{#permissions.camera}}
-        <!-- WM: disabled the barcodescanner plugin because it's not need and requires extra permissions    
-        <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="6.0.5" >
+        <!-- WM: disabled the barcodescanner plugin because it's not used and require permissions  
+        <plugin name="phonegap-plugin-barcodescanner" source="npm" spec="8.0.0" >
             <param name="CAMERA_USAGE_DESCRIPTION" value="This app needs to access your camera" />
         </plugin> -->
     {{/permissions.camera}}
@@ -127,10 +128,10 @@
 
     {{#iosEnabled}}
         <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
-                <!-- On iOS, the statusbar is transparent by default and is drawn over the top of our app. -->
+
+        <!-- WM: make status bar overlay and change default color -->
         <preference name="StatusBarOverlaysWebView" value="true" />
         <preference name="StatusBarBackgroundColor" value="#FFFFFF" />
-        <!-- WM: make status bar overlay and change default color to white with black text  -->
         <preference name="StatusBarStyle" value="default" />
 
         <preference name="DisallowOverscroll" value="true" />
@@ -169,18 +170,18 @@
         <!-- The gradle build tool is required for the phonegap-plugin-push -->
         <preference name="android-build-tool" value="gradle" />
 
-        <preference name="CrosswalkAnimatable" value="true" />
-        <preference name="xwalkMultipleApk" value="true" />
-
         {{#options.architecture}}
             <preference name="buildArchitecture" value="{{.}}" />
         {{/options.architecture}}
 
         <plugin name="cordova-plugin-whitelist" source="npm" spec="1.2.2" />
         <plugin name="cordova-plugin-android-permissions" source="npm" version="0.10.0" />
+        <plugin name="cordova-android-support-gradle-release" source="npm" version="1.2.0">
+            <variable name="ANDROID_SUPPORT_VERSION" value="27.0.0" />
+        </plugin>
 
         <preference name="android-minSdkVersion" value="19" />
-        
+
         {{^crosswalkEnabled}}
         <preference name="android-targetSdkVersion" value="27" />
         {{/crosswalkEnabled}}
@@ -195,8 +196,6 @@
         <plugin name="com.crosswalk.cookies" spec="https://github.com/dokoto/crosswalk-cookies.git" />
         {{/crosswalkEnabled}}
 
-        <preference name="android-targetSdkVersion" value="27" />
-
         <platform name="android">
             {{#androidImages}}
                 <!-- Icon definitions - for more details: http://developer.android.com/guide/topics/resources/providing-resources.html -->
@@ -209,12 +208,12 @@
             {{/androidImages}}
         </platform>
     {{/androidEnabled}}
-    <!-- WM: ShowSplashScreenSpinner (boolean, defaults to true): Set to false to hide the splash-screen spinner.  -->    
+
+    <splash src="res/android/screen-xxxhdpi-portrait.png" />
+
+    {{{customConfiguration}}}
+    <!-- WM: Set to false to hide the splash-screen spinner. -->  
     <preference name="ShowSplashScreenSpinner" value="false"/>
     <preference name="SplashScreenDelay" value="20000" />
     <preference name="FadeSplashScreenDuration" value="1000" />
-    
-    <splash src="res/android/screen-xxxhdpi-portrait.png" /> 
-    
-    {{{customConfiguration}}}
 </widget>
