@@ -1,8 +1,8 @@
 {
   "url" : "https://prod.apptime.nl",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "1.8.8",
-  "android-versionCode" : "108008",
+  "version" : "1.8.9",
+  "android-versionCode" : "108009",
   "name" : "AppTime",
   "description" : "Mobile access to your work",
   "iosEnabled" : true,
