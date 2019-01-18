@@ -27,7 +27,7 @@ MxApp.onConfigReady(function(config) {
                                 params: {
                                     actionname: "System.ShowHomePage"
                                 },
-                                origin: mx.router._contentForm,
+                                origin: mx.ui.getContentForm(),
                                 callback: function() {
                                     // mx.ui.hideProgress(pid);
                                 },
