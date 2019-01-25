@@ -6,3 +6,5 @@
 *.example
 
 .DS_Store
+config/google-services.json
+config/GoogleService-Info.plist
