@@ -10,7 +10,7 @@
   "enableOffline" : false,
   "crosswalkEnabled": false,
   "permissions" : {
-    "calendar" : false,
+    "calendar" : true,
     "camera" : true,
     "photoLibrary" : true,
     "contacts" : false,
