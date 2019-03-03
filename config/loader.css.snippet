@@ -1,3 +1,13 @@
+.mx-hybridapp {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    bottom: calc(0px - constant(safe-area-inset-top));
+    bottom: calc(0px - env(safe-area-inset-top));
+}
+
 .spinner {
   margin: 100px auto 0;
   width: 70px;
