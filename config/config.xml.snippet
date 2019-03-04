@@ -9,6 +9,11 @@
 <allow-navigation href="*://*.apptime.nl/*"/>
 <allow-navigation href="*://upload.satisfactor.net/*"/>
 
+<!-- WM: add NSCalendarsUsageDescription for the iOS App Store -->
+<edit-config target="NSCalendarsUsageDescription" file="*-Info.plist" mode="merge">
+    <string>This app needs to access your calendar to create an event</string>
+</edit-config>
+
 <!-- WM: universal links plugin to open this app using hyperlinks in other apps i.e. mail-->
 <plugin name="cordova-universal-links-plugin" source="git" spec="https://github.com/mulderWH/cordova-universal-links-plugin.git"/>
 <universal-links>
