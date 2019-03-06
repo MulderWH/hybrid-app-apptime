@@ -48,7 +48,7 @@
     "@mendix/mendix-hybrid-app-base": "^4.0.5",
     "global": "^4.3.2",
     "mustache-loader": "^1.4.0",
-    "npm": "^6.8.0"
+    "npm": "^6.9.0"
   },
   "devDependencies": {
     "phonegap": "8.2.2",
