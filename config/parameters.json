@@ -1,8 +1,8 @@
 {
   "url" : "https://prod.apptime.nl",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "1.9.1",
-  "android-versionCode" : "109001",
+  "version" : "2.0.2",
+  "android-versionCode" : "200002",
   "name" : "AppTime",
   "description" : "Mobile access to your work",
   "iosEnabled" : true,
@@ -11,14 +11,13 @@
   "enableOffline" : false,
   "crosswalkEnabled": false,
   "permissions" : {
-    "calendar" : false,
+    "calendar" : true,
     "camera" : true,
     "photoLibrary" : true,
     "contacts" : false,
     "microphone" : false,
     "geoLocation" : false,
-    "push" : true,
-    "universalLinks" : true
+    "push" : true
   },
   "theme" : {
     "background" : "#ffffff",

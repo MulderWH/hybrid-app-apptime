@@ -1,0 +1,33 @@
+<!-- WM: click-to-call links fix, see https://forum.mendixcloud.com/link/questions/88197-->
+<allow-intent href="tel:*" />
+<allow-intent href="sms:*" />  
+<allow-intent href="mailto:*" /> 
+
+<!-- WM: allow videos and assets to be loaded and open links in the app itself -->
+<allow-navigation href="*://*.vimeo.com/*"/>
+<allow-navigation href="*://*.youtube.com/*"/>
+<allow-navigation href="*://*.apptime.nl/*"/>
+<allow-navigation href="*://upload.satisfactor.net/*"/>
+
+<!-- WM: add NSCalendarsUsageDescription for the iOS App Store -->
+<edit-config target="NSCalendarsUsageDescription" file="*-Info.plist" mode="merge">
+    <string>This app needs to access your calendar to create an event</string>
+</edit-config>
+
+<!-- WM: universal links plugin to open this app using hyperlinks in other apps i.e. mail-->
+<plugin name="cordova-universal-links-plugin" source="git" spec="https://github.com/mulderWH/cordova-universal-links-plugin.git"/>
+<universal-links>
+    <host name="accp.apptime.nl" scheme="https">
+        <path url="/link/haa_*"/>
+    </host>
+    <host name="prod.apptime.nl" scheme="https">
+        <path url="/link/haa_*"/>
+    </host>
+</universal-links>
+<!-- WM: when using deep links on android do not open multiple instances of the app-->
+<preference name="AndroidLaunchMode" value="singleInstance" />
+
+<!-- WM: Set to false to hide the splash-screen spinner. -->  
+<preference name="ShowSplashScreenSpinner" value="false"/>
+<preference name="SplashScreenDelay" value="20000" />
+<preference name="FadeSplashScreenDuration" value="1000" />
