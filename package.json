@@ -45,10 +45,10 @@
     "/*.md"
   ],
   "dependencies": {
-    "@mendix/mendix-hybrid-app-base": "^4.0.5",
-    "global": "^4.3.2",
-    "mustache-loader": "^1.4.0",
-    "npm": "^6.9.0"
+    "@mendix/mendix-hybrid-app-base": "^4.1.0",
+    "global": "^4.4.0",
+    "mustache-loader": "^1.4.3",
+    "npm": "^6.10.1"
   },
   "devDependencies": {
     "phonegap": "8.2.2",
