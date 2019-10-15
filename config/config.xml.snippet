@@ -31,3 +31,11 @@
 <preference name="ShowSplashScreenSpinner" value="false"/>
 <preference name="SplashScreenDelay" value="20000" />
 <preference name="FadeSplashScreenDuration" value="1000" />
+
+<!-- WM: opt out for dark mode -->
+<edit-config target="UIUserInterfaceStyle" file="*-Info.plist" mode="merge">
+    <string>Light</string>
+</edit-config>
+<edit-config target="UIViewControllerBasedStatusBarAppearance" file="*-Info.plist" mode="merge" >
+    <true />
+</edit-config>
