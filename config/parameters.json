@@ -1,8 +1,8 @@
 {
   "url" : "https://prod.apptime.nl",
   "identifier" : "nl.pegamento.apptime",
-  "version" : "2.4.0",
-  "android-versionCode" : "204000",
+  "version" : "2.4.1",
+  "android-versionCode" : "204001",
   "name" : "AppTime",
   "description" : "The all-in-one employee app",
   "iosEnabled" : true,
