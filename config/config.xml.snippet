@@ -31,3 +31,14 @@
 <preference name="ShowSplashScreenSpinner" value="false"/>
 <preference name="SplashScreenDelay" value="20000" />
 <preference name="FadeSplashScreenDuration" value="1000" />
+
+<!-- WM: Shrink the webview when the keyboard is shown on iOS. -->  
+<plugin name="cordova-plugin-keyboard" source="npm" spec="1.2.0" />
+
+<!-- WM: Make statusbar default color black for iOS 13 dark mode -->
+<config-file parent="UIUserInterfaceStyle" platform="ios" target="*-Info.plist">
+    <string>Light</string>
+</config-file>
+<config-file target="*-Info.plist" parent="UIViewControllerBasedStatusBarAppearance">
+  <true />
+</config-file>
