@@ -12,7 +12,7 @@ This project contains the Mendix PhoneGap Build app template. You can use it to
 - customize your mobile Mendix app: styling, icons, splash screens and code,
 - open the platform specific code inside the appropriate IDEs,
 - debug the app using emulators,
-- build installable packages, either locally or in the cloud using [PhoneGap Build](https://build.phonegap.com).
+- build installable packages, either locally or in the cloud (Android-only) using [PhoneGap Build](https://build.phonegap.com).
 
 # Table of Contents
 * [Prerequisites](#prerequisites)
@@ -34,6 +34,7 @@ Make sure that the following is installed on your system:
     - Windows: install from [nodejs.org](https://nodejs.org/en/download/)
     - MacOS: use [Brew](https://brew.sh/) to install `Node.js`: `brew install node`
     - Linux, BSD, etc: install using the available package manager, e.g. on Debian: `sudo apt-get install node`
+- Java version 8
 
 For building locally you also need a development environment for your target platform:
 
@@ -46,10 +47,7 @@ For building locally you also need a development environment for your target pla
 
 # <a name="build-on-phonegap"></a>Build on PhoneGap
 
-With the PhoneGap Build service you can build your app in the cloud, even if you haven't installed
-the development environment for your target platform. This way you can target iOS without owning an
-Apple computer. You still need an Apple developer account, provisioning profile and signing key. See
-the [PhoneGap site](http://docs.phonegap.com/phonegap-build/signing/ios/) for more details.
+With the PhoneGap Build service you can build your Android apps in the cloud. 
 
 To use the PhoneGap Build service you need to [register for an account](https://build.phonegap.com/plans)
 first. After that, you can build your app by uploading a PhoneGap Build package, which is just a
@@ -85,13 +83,11 @@ $ npm run package:arm               # prepare `build` directory for arm, or
 $ npm run package:arm64             # prepare `build` directory for arm64
 
 $ npm run phonegap:login            # login into the PGB service
-$ npm run phonegap:build:android    # build on PGB, alternatively use `phonegap:build:ios`
+$ npm run phonegap:build:android    # build on PGB
 ```
 
 # <a name="customize-dtap-endpoint"></a>Customize DTAP endpoint
-
-To target a specific DTAP endpoint with your app you can specify it as a parameter to
-`npm run package` or `npm run package:x86`, e.g:
+Various environments can be set in the `config/environments.json` file. To target a specific DTAP endpoint with your app you can specify it as a parameter to `npm run package` or `npm run package:x86`, e.g:
 ```
 $ npm run package -- --env.target=test  # target the test endpoint for ARM architecture
 ```
@@ -150,8 +146,23 @@ $ npm run package:arm64             # prepare `build` directory for arm64
 
 $ npm run prepare:all               # prepare phonegap platform files
 
-$ npm run start:emulator            # run on emulator, alternatively use start:device
+$ npm run build               
 ```
+
+Build will generate necessary Android and IOS files in order to run the project.
+
+Make sure you checkout the [Trouble Shooting Section](#troubleshooting) 
+
+##### For best experience open each platform project on their native IDE (Android studio for android, Xcode for IOS):
+
+###### IOS
+- Open `./build/platforms/ios/yourAppName.xcworkspace` from your Xcode
+- In recent version of Xcode you might need to set the build system; *File > Project Settings*. Set the Shared or per-user project settings: the `Build system` to `Legacy Build Systems`.
+- Run the app on desired simulator
+
+###### Android
+- Open `./build/platforms/android/` in Android Studio
+- Run the app on desired simulator
 
 # <a name="customize-app"></a>Customizing your app
 
@@ -271,6 +282,14 @@ Either
 
 You can find installation instruction for Gradle on the [Gradle website](https://gradle.org/install/).
 
+### Minimum supported Gradle version is x.x.x. Current version is x.x.x. If using the gradle wrapper, try editing the distributionUrl
+
+Make sure you are have `CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL` in your path or export it to particular terminal session with correct distribution enabled eg:
+
+>CORDOVA_ANDROID_GRADLE_DISTRIBUTION_URL=https://services.gradle.org/distributions/gradle-x.x.x-all.zip
+
+Bear in mind that other Cordova projects would also be effected by this change.
+
 ### No toolchains found in the NDK toolchains folder for ABI with prefix: mips64el-linux-android
 
 In build/platforms/android/build.gradle, replace
@@ -282,8 +301,8 @@ and perform a Gradle sync.
 ### Execution failed for task ':app:processX86DebugResources' (or similar)
 
 ```
-AGPBI: {"kind":"error","text":"error: resource android:attr/fontVariationSettings not found.","sources":[{"file":"/Users/Kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/4abf4d56829ea1da7befcfae3c8fd6c7/res/values/values.xml","position":{"startLine":132,"startColumn":4,"startOffset":7725,"endColumn":69,"endOffset":7790}}],"original":"","tool":"AAPT"}
-AGPBI: {"kind":"error","text":"error: resource android:attr/ttcIndex not found.","sources":[{"file":"/Users/Kevin/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/4abf4d56829ea1da7befcfae3c8fd6c7/res/values/values.xml","position":{"startLine":132,"startColumn":4,"startOffset":7725,"endColumn":69,"endOffset":7790}}],"original":"","tool":"AAPT"}
+AGPBI: {"kind":"error","text":"error: resource android:attr/fontVariationSettings not found.","sources":[{"file":"/Users/UserName/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/4abf4d56829ea1da7befcfae3c8fd6c7/res/values/values.xml","position":{"startLine":132,"startColumn":4,"startOffset":7725,"endColumn":69,"endOffset":7790}}],"original":"","tool":"AAPT"}
+AGPBI: {"kind":"error","text":"error: resource android:attr/ttcIndex not found.","sources":[{"file":"/Users/UserName/.gradle/caches/transforms-1/files-1.1/support-compat-28.0.0.aar/4abf4d56829ea1da7befcfae3c8fd6c7/res/values/values.xml","position":{"startLine":132,"startColumn":4,"startOffset":7725,"endColumn":69,"endOffset":7790}}],"original":"","tool":"AAPT"}
 ```
 
 In build/platforms/android/project.properties, replace
@@ -291,6 +310,44 @@ In build/platforms/android/project.properties, replace
 `target=android-27` with `target=android-28`
 
 and perform a Gradle sync.
+
+### Localhost 
+In case you build against localhost your app might not able to run, and throw an error: `Failed to load resource: net::ERR_CLEARTEXT_NOT_PERMITTED`.
+
+You might have to add this element:
+
+```
+<edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+  <application android:usesCleartextTraffic="true" />
+</edit-config>
+``` 
+
+inside of `<platform name="android">`
+
+in `src/config.xml.mustache`
+
+Bear in mind that this config allows http requests and it shouldn't be in your production build.
+
+### No installed build tools found. Install the Android build tools version 19.1.0 or higher.
+Even when Android Studio is installed, you might need to install to build tools separately
+
+1. Launch Android Studio. Then go to *Preferences -> Appearance & Behavior -> System SEttings -> Android SDK*. You will find `Android SDK Location`. For example `/Users/${user_name}/Library/Android/sdk`.
+
+2. Go to `SDK tools` tab and check `show package details`. `Android SDK build tools` will be there. Please make sure Android SDK build tools 19.1.0 or higher is installed.
+
+3. For MacOS: Edit *~/.bash_profile*, and set ANDROID_HOME as "Android SDK Location" which you found in the Android Studio.
+    ```
+    export ANDROID_HOME=/Users/${user_name}/Library/Android/sdk
+    export PATH=${PATH}:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+    ```
+    For Windows: Edit `Environment Variables`, Add entries for the relevant locations to the PATH. For example (substitute the paths with your local Android SDK installation's location):
+    ```
+    C:\Users\[your user]\AppData\Local\Android\Sdk\platform-tools
+    C:\Users\[your user]\AppData\Local\Android\Sdk\tools
+    ```
+    
+See Cordova guide: [Android](https://cordova.apache.org/docs/en/latest/guide/platforms/android/index.html) or [iOS](https://cordova.apache.org/docs/en/latest/guide/platforms/ios/index.html)
+
 
 ### Adding iOS platform fails
 
@@ -307,14 +364,6 @@ Unfortunately, this does not work in the case of iOS, because some plugins requi
 To work around this, you should make sure that the Android platform was added before running npm run package:ios, either by running `npm run platform:all`, or by running `npm run platform:android` beforehand.
 
 If required, you can later remove the android platform by running `npm run platform -- remove android`.
-
-### No 'Podfile' found in the project directory
-
-The Push Notifications plugin requires some additional components, which are installed through CocoaPods.
-To trigger this installation, we always call `pod install` as part of the `platform` and `prepare` commands.
-If you have disabled the push capability, this step is superfluous.
-This will show up in your logs as `[!] No 'Podfile' found in the project directory`.
-You can safely ignore this error.
 
 ### Menu bar is cut off at the bottom (e.g. on iPhone X)
 
@@ -336,3 +385,7 @@ In your hybrid app styling:
     padding-bottom: env(safe-area-inset-bottom); min-height: 100vh;
 }
 ```
+
+### Failed iOS build with Missing or Invalid 'Team' configuration
+
+This can be circumvented by opening the `.xcworkspace` project located in the `build/platforms/ios` directory with XCode and configuring the Development team in the project settings.
