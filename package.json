@@ -1,6 +1,6 @@
 {
   "name": "@mendix/mendix-hybrid-app-template",
-  "version": "4.1.3",
+  "version": "5.0.0",
   "description": "Mendix PhoneGap Build app template",
   "scripts": {
     "init": "node init",
@@ -9,8 +9,8 @@
     "phonegap": "cd build && phonegap",
     "plugin": "npm run phonegap -- plugin",
     "platform": "npm run phonegap -- platform",
-    "build:ios": "npm run phonegap -- build ios",
     "build": "npm run phonegap -- build",
+    "build:ios": "npm run phonegap -- build ios",
     "start": "npm run phonegap -- run",
     "package:x86": "npm run package -- --env.x86",
     "package:x86_64": "npm run package -- --env.x86_64",
@@ -48,7 +48,7 @@
     "/*.md"
   ],
   "dependencies": {
-    "@mendix/mendix-hybrid-app-base": "^4.1.3",
+    "@mendix/mendix-hybrid-app-base": "^5.0.0",
     "global": "^4.3.2",
     "mustache-loader": "^1.4.0"
   },
