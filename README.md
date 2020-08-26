@@ -1,4 +1,4 @@
-# Mendix Hybrid App Template
+# Apptime Hybrid App Template
 
 Mendix apps can simply be viewed in mobile web browsers. However, some features of mobile devices
 cannot be accessed through HTML and JavaScript. Also, if you want to publish your app in the Apple
