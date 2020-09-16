@@ -48,15 +48,15 @@
     "/*.md"
   ],
   "dependencies": {
-    "@mendix/mendix-hybrid-app-base": "^5.0.0",
-    "global": "^4.3.2",
-    "mustache-loader": "^1.4.0"
+    "@mendix/mendix-hybrid-app-base": "^5.0.2",
+    "global": "^4.4.0",
+    "mustache-loader": "^1.4.3"
   },
   "devDependencies": {
     "phonegap": "9.0.0",
     "shelljs": "^0.7.7",
-    "webpack": "^3.4.1",
-    "webpack-merge": "^4.0.0"
+    "webpack": "^3.12.0",
+    "webpack-merge": "^4.2.2"
   },
   "repository": {
     "type": "git",
