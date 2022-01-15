@@ -54,7 +54,7 @@
   },
   "devDependencies": {
     "phonegap": "9.0.0",
-    "shelljs": "^0.7.7",
+    "shelljs": "^0.8.5",
     "webpack": "^3.12.0",
     "webpack-merge": "^4.2.2"
   },
